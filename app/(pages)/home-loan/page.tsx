@@ -13,7 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { features } from "process";
 
 export default function Page() {
   return (
@@ -50,8 +49,8 @@ const privileges = [
 function Banner() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 place-items-center px-2 sm:px-6">
-      <h1 className="text-5xl w-2/3 text-main font-bold">
-        Own Tomorrow's Home, Funded Today by Prefinn
+      <h1 className="sm:text-5xl text-3xl w-2/3 text-main font-bold">
+        Own Tomorrow Home, Funded Today by Prefinn
       </h1>
       <img
         className="h-96"
@@ -70,7 +69,7 @@ function SmartFinance() {
           Prefinn Smart financing
         </CardTitle>
       </CardHeader>
-      <CardContent className="grid grid-cols-1 sm:grid-cols-3">
+      <CardContent className="grid grid-cols-1 sm:grid-cols-3 mx-32">
         <div className="flex flex-col">
           <span>Loan as</span>
           <span className="text-4xl font-bold">90%</span>
@@ -88,11 +87,11 @@ function SmartFinance() {
         </div>
       </CardContent>
       <CardFooter>
-        <p>
+        <p className="px-20">
           Prefinn ensures you find the right home loan by analyzing offers from
           multiple lenders based on your financial profile and needs. Loan
           amount sanctioned by banks and HFCs varies between 75% to 90% of the
-          property price, depending on the applicant's financial stability and
+          property price, depending on the applicants financial stability and
           credit score.
         </p>
       </CardFooter>
@@ -102,7 +101,7 @@ function SmartFinance() {
 
 function Privileges() {
   return (
-    <div className="text-center my-8">
+    <div className="text-center my-8 mx-4">
       <h1 className="text-3xl font-bold text-main mb-2">
         The Prefinn Privileges
       </h1>
@@ -124,7 +123,7 @@ function Privileges() {
         <Button size={"lg"}>Apply Now</Button>
       </div>
 
-      <div className="px-2 my-8">
+      <div className="mx-4 my-8">
         <h1 className="text-center text-4xl font-bold text-main">
           Home Loan FAQ
         </h1>
@@ -166,7 +165,7 @@ function Privileges() {
             </AccordionTrigger>
             <AccordionContent>
               The maximum loan amount depends on factors like your income,
-              credit score, repayment capacity, and the lender's policies.
+              credit score, repayment capacity, and the lenders policies.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

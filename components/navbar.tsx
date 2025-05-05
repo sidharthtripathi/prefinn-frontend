@@ -48,89 +48,89 @@ const products: { title: string; href: string; description: string }[] = [
 ];
 
 const tools: { title: string; href: string; description: string }[] = [
-  { title: "EMI calculator", description: "zyd", href: "/emi-calculator" },
+  {
+    title: "EMI calculator",
+    description: "Estimate your monthly loan installments easily.",
+    href: "/emi-calculator",
+  },
   {
     title: "Balance transfer calculator",
-    description: "zyd",
+    description: "Check how much you can save by transferring your loan.",
     href: "/balance-transfer-calculator",
   },
-  { title: "Know your credit score", description: "zyd", href: "/cibilscore" },
   {
-    title: "check your credibility",
-    description: "zyd",
+    title: "Know your credit score",
+    description: "Get insights into your creditworthiness and score.",
+    href: "/cibilscore",
+  },
+  {
+    title: "Check your credibility",
+    description: "Find out your loan eligibility based on your profile.",
     href: "/eligibility-check",
   },
 ];
 
 export function Navbar() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList >
-       
-        
-          <NavigationMenuItem>
-            <Link href="/" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Home
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/about-us" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                About us
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {tools.map((tool) => (
-                  <ListItem
-                    key={tool.title}
-                    title={tool.title}
-                    href={tool.href}
-                  >
-                    {tool.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {products.map((product) => (
-                  <ListItem
-                    key={product.title}
-                    title={product.title}
-                    href={product.href}
-                  >
-                    {product.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+    <NavigationMenu className="h-20 border-b-2 max-w-none">
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Home
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/about-us" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              About us
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {products.map((product) => (
+                <ListItem
+                  key={product.title}
+                  title={product.title}
+                  href={product.href}
+                >
+                  {product.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {tools.map((tool) => (
+                <ListItem key={tool.title} title={tool.title} href={tool.href}>
+                  {tool.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
 
-          <NavigationMenuItem>
-            <Link href="/loan-apply" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Apply for loan
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/become-partner" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Become a partner
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-       
+        <NavigationMenuItem>
+          <Link href="/loan-apply" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Apply for loan
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/become-partner" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Become a partner
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   );

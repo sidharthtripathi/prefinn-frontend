@@ -1,4 +1,4 @@
-import AboutUs from "./screens/AboutUs";
+
 import { HomePage } from "./screens/Heropage";
 
 

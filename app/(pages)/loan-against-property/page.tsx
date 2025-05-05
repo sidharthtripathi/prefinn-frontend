@@ -21,7 +21,7 @@ export default function Page() {
       <ValueBanner />
       <PromisesBanner />
       <ApplyBanner />
-      <LAPFAQ/>
+      <LAPFAQ />
     </div>
   );
 }
@@ -205,15 +205,16 @@ const faqs = [
 function LAPFAQ() {
   return (
     <div>
+      <h1 className="text-4xl font-bold text-main text-center mb-4">
+        Loan Against a property FAQ
+      </h1>
       <Accordion type="single" collapsible className="w-full text-left">
         {faqs.map((faq, idx) => (
           <AccordionItem key={idx} value={`item-${idx}`}>
             <AccordionTrigger className="font-bold text-lg">
               {faq.q}
             </AccordionTrigger>
-            <AccordionContent>
-              {faq.a}
-            </AccordionContent>
+            <AccordionContent>{faq.a}</AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>

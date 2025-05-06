@@ -30,7 +30,7 @@ import {
 export function LoanApplyForm() {
   return (
     <div>
-      <h1 className="text-center">Request a Loan Quote</h1>
+      <h1 className="text-center font-bold text-3xl text-main mb-4">Request a Loan Quote</h1>
       <form>
         <div className="grid grid-cols-1 sm:grid-cols-2">
           <Input type="text" placeholder="Full Name" />

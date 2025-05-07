@@ -9,6 +9,7 @@ import {
 
 import { NavbarSheet } from "./MobileNavbar";
 import { MenuIcon } from "lucide-react";
+import { CustomerAuthDialog, PartnerAuthDialog } from "../auth/AuthForm";
 
 export function Navbar() {
   return (
@@ -17,7 +18,6 @@ export function Navbar() {
         <MenubarMenu>
           <MenubarTrigger className="block sm:hidden">
             <NavbarSheet>
-
               <MenuIcon size={15} />
             </NavbarSheet>
           </MenubarTrigger>
@@ -75,9 +75,10 @@ export function Navbar() {
         <MenubarMenu>
           <MenubarTrigger>Login</MenubarTrigger>
           <MenubarContent>
-            <MenubarItem>Login as Customer</MenubarItem>
+            <CustomerAuthDialog>Login as Customer</CustomerAuthDialog>
+
             <MenubarSeparator />
-            <MenubarItem>Login as Partner</MenubarItem>
+            <PartnerAuthDialog>Login as Partner</PartnerAuthDialog>
           </MenubarContent>
         </MenubarMenu>
       </div>

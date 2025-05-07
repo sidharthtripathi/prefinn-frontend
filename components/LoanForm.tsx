@@ -10,11 +10,11 @@ import {
 } from "@/components/ui/select";
 import { Button } from "./ui/button";
 import {
-  AlertDialog,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+  Dialog,
+  DialogContent,
+  DialogClose,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import { Label } from "./ui/label";
 export function LoanApply({ title }: { title: string }) {
   return (
@@ -113,14 +113,14 @@ function SelectProfession() {
 
 export function LoanApplyDialog() {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
+    <Dialog>
+      <DialogTrigger asChild>
         <Button variant="outline">Apply Loan</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent>
+      </DialogTrigger>
+      <DialogContent>
         <LoanApply title="Apply for Home Loan" />
-        <AlertDialogCancel>Cancel</AlertDialogCancel>
-      </AlertDialogContent>
-    </AlertDialog>
+        <DialogClose>Cancel</DialogClose>
+      </DialogContent>
+    </Dialog>
   );
 }

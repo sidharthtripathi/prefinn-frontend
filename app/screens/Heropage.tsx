@@ -171,26 +171,26 @@ export function HomePage() {
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 place-items-center px-0 sm:px-4 md:px-8 lg:px-16">
         <div>
-          <h1 className="text-main font-extrabold text-5xl mb-5">
+          <h1 className="text-main font-extrabold text-6xl mb-5">
             We are Prefinn
           </h1>
           <p className="font-bold text-3xl mb-6">
             India’s Preferred Loan Distribution Platform
           </p>
-          <p className="text-2xl font-thin mb-4">
+          <p className="text-2xl font-thick mb-4">
             Prefinn streamlines the loan process by blending traditional finance
-            with agile fintech, ensuring faster and more efficient
-            disbursements.
+            with agile fintech, ensuring faster and more efficient disbursements.
+            
           </p>
           <div>
-            <p className="text-main font-bold">
+            <p className="text-main my-2 font-bold">
               Partnered Bank & NBFC Offerings
             </p>
-            <p className="text-main font-bold">
+            <p className="text-main my-2 font-bold">
               {" "}
               Tailored Loans for Housing & MSMEs
             </p>
-            <p className="text-main font-bold">
+            <p className="text-main my-2 font-bold">
               Driving Financial Inclusion Nationwide
             </p>
           </div>
@@ -202,8 +202,8 @@ export function HomePage() {
           />
         </div>
       </div>
-      <div className="px-16">
-        <h1 className=" mt-20 font-extrabold text-center text-3xl text-main mb-6">
+      <div className="px-20">
+        <h1 className=" mt-20 font-extrabold text-center text-4xl text-main mb-8 mt-8">
           Our Loan Products
         </h1>
         <div className=" gap-4 flex flex-col md:flex-row">
@@ -216,7 +216,7 @@ export function HomePage() {
                 <CardTitle className="text-center text-main mb-2">
                   {product.title}
                 </CardTitle>
-                <CardDescription className="text-center">
+                <CardDescription className="text-center text-dark">
                   {product.description}
                 </CardDescription>
               </CardContent>
@@ -224,8 +224,8 @@ export function HomePage() {
           ))}
         </div>
       </div>
-      <div className=" mt-16">
-        <h1 className="text-3xl font-bold text-center text-main mb-6">
+      <div className=" mt-20">
+        <h1 className="text-4xl font-bold text-center text-main mb-6">
           Discover Our Feature
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4">
@@ -246,8 +246,8 @@ export function HomePage() {
           ))}
         </div>
       </div>
-      <div>
-        <h1 className="text-3xl font-bold mb-4 text-main text-center mt-8 ">
+      <div className="mt-20">
+        <h1 className="text-4xl font-bold mb-4 text-main text-center mt-8 mb-8 ">
           Our Success Stories
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
@@ -268,8 +268,8 @@ export function HomePage() {
           ))}
         </div>
       </div>
-      <div>
-        <h1 className="text-main font-bold text-3xl text-center mt-8 mb-4">
+      <div className="mt-20">
+        <h1 className="text-main font-bold text-4xl text-center mt-8 mb-8">
           Our Value Chain Partner
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
@@ -290,8 +290,8 @@ export function HomePage() {
           ))}
         </div>
       </div>
-      <div className="px-2">
-        <h1 className="text-center font-bold text-3xl text-main mt-8 mb-4">
+      <div className=" mt-20 px-2">
+        <h1 className="text-center font-bold text-4xl text-main mt-8 mb-6">
           Our service provider
         </h1>
         <div>
@@ -307,6 +307,7 @@ export function HomePage() {
           </Marquee>
         </div>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2">
         <div className="flex justify-center items-center">
           <div>
@@ -316,21 +317,21 @@ export function HomePage() {
             <p className="font-bold text-xl mb-3">Drop Us a Message</p>
             <form className="space-y-6">
               <div className="flex gap-4 items-center">
-                <Label className="w-32">Full Name</Label>
+                <Label className="w-32 text-lg">Full Name</Label>
                 <Input
                   className=" w-full h-14"
                   placeholder="Enter your full name"
                 />
               </div>
               <div className="flex gap-4 items-center">
-                <Label className="w-32">Email</Label>
+                <Label className="w-32 text-lg">Email</Label>
                 <Input
                   className=" w-full h-14"
                   placeholder="Enter your email"
                 />
               </div>
               <div className="flex gap-4 items-center">
-                <Label className="w-32">Mobile</Label>
+                <Label className="w-32 text-lg">Mobile</Label>
                 <Input
                   className=" w-full h-14"
                   placeholder="Enter your mobile"

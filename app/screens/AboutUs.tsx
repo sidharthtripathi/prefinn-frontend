@@ -18,7 +18,7 @@ export default function AboutUs() {
 
 function Vision() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 place-items-center mt-4 mb-8 bg-blue-100 py-8 rounded-lg mx-16 px-4 ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 place-items-center mt-5 mb-8 bg-blue-100 py-8 rounded-lg mx-16 px-4 ">
       <img
         className="h-52"
         src="https://img.freepik.com/free-vector/illustration-light-bulb-icon_53876-5884.jpg?ga=GA1.1.56492630.1742847583&semt=ais_hybrid&w=740"
@@ -45,10 +45,10 @@ function Aboutus() {
   return (
     <div>
       <section>
-        <h1 className="text-3xl font-extrabold text-main text-center mb-2 mt-8">
+        <h1 className="text-3xl font-extrabold text-main text-center mb-4 mt-10">
           About us
         </h1>
-        <p className="text-center text-lg text-gray-600 px-2  md:px-20">
+        <p className="text-center text-lg text-dark-600 px-2 mb-5 mt-4 md:px-20">
           At Prefinn, we are committed to transforming access to credit across
           India. Our objective is to streamline lending products and extend
           their reach to Bharat consumers via a secure, unified digital platform
@@ -62,7 +62,7 @@ function Aboutus() {
         <img
           src="https://img.freepik.com/premium-vector/collaborative-brainstorming-session-about-us-page-concept_1263357-35648.jpg"
           alt="user image"
-          className="w-8/12"
+          className="w-7/12"
         />
         <ul className="space-y-6 text-lg">
           <li>
@@ -92,19 +92,19 @@ function Aboutus() {
 
 function AboutBanner() {
   return (
-    <div className="  bg-[url('https://img.freepik.com/free-photo/handshake-businessmen_1098-742.jpg?uid=R193913366&ga=GA1.1.56492630.1742847583&semt=ais_hybrid&w=740')] bg-cover bg-center h-96 w-full flex justify-center items-center">
-      <Card className="w-1/2 backdrop-blur-md bg-black/60 text-white font-bold border-none">
-        <CardHeader>
-          <CardTitle className="text-center text-3xl mb-2 font-bold">
-            Simplifying Finance. Empowering Individuals and Businesses.
-          </CardTitle>
-          <CardDescription className="text-center text-lg">
-            We are dedicated to transforming financial access through seamless
-            digital solutions. Whether you are an individual or business, our
-            platform helps you get fast, transparent, and secure loan services.
-          </CardDescription>
-        </CardHeader>
-      </Card>
-    </div>
+    <div className="bg-[url('https://img.freepik.com/free-photo/handshake-businessmen_1098-742.jpg?uid=R193913366&ga=GA1.1.56492630.1742847583&semt=ais_hybrid&w=740')] bg-cover bg-center h-96 w-full flex justify-center items-center animate-fade-in">
+    <Card className="w-full sm:w-1/2 backdrop-blur-md bg-black/60 text-white font-bold border-none animate-slide-in-bottom">
+      <CardHeader>
+        <CardTitle className="text-center text-xl sm:text-3xl mb-2 font-bold animate-pulse">
+          Simplifying Finance. Empowering Individuals and Businesses.
+        </CardTitle>
+        <CardDescription className="text-center text-base sm:text-lg animate-fade-in delay-200">
+          We are dedicated to transforming financial access through seamless
+          digital solutions. Whether you are an individual or business, our
+          platform helps you get fast, transparent, and secure loan services.
+        </CardDescription>
+      </CardHeader>
+    </Card>
+  </div>
   );
 }

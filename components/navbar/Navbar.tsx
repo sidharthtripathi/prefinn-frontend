@@ -56,8 +56,6 @@ export function Navbar() {
             <MenubarItem>Balance Transfer Calculator</MenubarItem>
             <MenubarSeparator />
             <MenubarItem>Know your credit score</MenubarItem>
-            <MenubarSeparator />
-            <MenubarItem>Check your eligibility</MenubarItem>
           </MenubarContent>
         </MenubarMenu>
       </div>

@@ -20,30 +20,30 @@ const products: { title: string; href: string; description: string }[] = [
     title: "Home Loan",
     href: "/home-loan",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "Prefinn helps clients assess their home financing needs by partnering with experienced consultants.",
   },
   {
     title: "Loan against property",
     href: "/loan-against-property",
     description:
-      "For sighted users to preview content available behind a link.",
+      "Prefinn’s finance experts help secure a Loan Against Property (LAP) from top banks.",
   },
   {
     title: "Working Capital Loan",
     href: "/working-capital-loan",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Expert financial solutions to maintain smooth business operations",
   },
   {
     title: "Business Loan",
     href: "/business-loan",
-    description: "Visually or semantically separates content.",
+    description: "Prefinn offers Business Loan services to help businesses assess their short-term financing needs",
   },
   {
     title: "Personal Loan",
     href: "/personal-loan",
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "Prefinn helps clients assess their personal loan requirements by partnering with licensed financial advisors.",
   },
 ];
 

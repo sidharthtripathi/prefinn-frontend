@@ -1,9 +1,9 @@
-import CameraCapture from "@/components/CameraCapture";
+import LoanCalculator from "@/components/LoanCalculator";
 
 export default function Page(){
     return (
         <div>
-            <CameraCapture/>
+            <LoanCalculator/>
         </div>
     )
 }

@@ -1,3 +1,4 @@
+import LoanCalculator from "@/components/LoanCalculator";
 import {
   Card,
   CardContent,
@@ -11,6 +12,7 @@ export default function Page() {
     <div>
       <h1>Smarter Management Made Simple</h1>
       <p>Reduce Interest Cost And Consolidate Our Balance Transfer solutions</p>
+      <LoanCalculator/>
       <LoanServices />
       <TransferSteps />
     </div>

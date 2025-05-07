@@ -1,3 +1,4 @@
+import LoanCalculator from "@/components/LoanCalculator";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -10,6 +11,7 @@ export default function Page() {
         competitive rates
       </p>
       <Button>Apply Now</Button>
+      <LoanCalculator/>
       <LoanServices />
       <LoanApprovalSteps/>
     </div>

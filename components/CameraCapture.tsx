@@ -1,156 +1,164 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect, MouseEvent } from "react"
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
-import Link from "next/link"
+import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Camera, RefreshCw } from "lucide-react";
+import { Checkbox } from "./ui/checkbox";
+import { Label } from "./ui/label";
 
-export default function CameraCapture() {
-  const [isCameraActive, setIsCameraActive] = useState(true)
-  const [capturedImage, setCapturedImage] = useState<string | null>(null)
-  const [agreed, setAgreed] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const streamRef = useRef<MediaStream | null>(null)
+const CameraCapture = () => {
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [isCameraReady, setIsCameraReady] = useState<boolean>(false);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const streamRef = useRef<MediaStream | null>(null);
 
-  // Initialize camera
+  // Initialize camera when component mounts
   useEffect(() => {
-    if (isCameraActive) {
-      startCamera()
-    } else {
-      stopCamera()
-    }
+    initializeCamera();
 
+    // Cleanup function to stop camera when component unmounts
     return () => {
-      stopCamera()
-    }
-  }, [isCameraActive])
+      stopCamera();
+    };
+  }, []);
 
-  const startCamera = async () => {
+  const initializeCamera = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "user" },
-        audio: false,
-      })
+      const constraints = {
+        video: {
+          facingMode: "user", // Use front camera for selfies
+          width: { ideal: 1280 },
+          height: { ideal: 720 },
+        },
+      };
 
-      streamRef.current = stream
+      const stream = await navigator.mediaDevices.getUserMedia(constraints);
 
       if (videoRef.current) {
-        videoRef.current.srcObject = stream
+        videoRef.current.srcObject = stream;
+        streamRef.current = stream;
+        setIsCameraReady(true);
       }
-    } catch (err) {
-      console.error("Error accessing camera:", err)
+    } catch (error) {
+      console.error("Error accessing camera:", error);
+      setIsCameraReady(false);
     }
-  }
+  };
 
   const stopCamera = () => {
     if (streamRef.current) {
-      streamRef.current.getTracks().forEach((track) => track.stop())
-      streamRef.current = null
+      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
     }
+    setIsCameraReady(false);
+  };
 
-    if (videoRef.current) {
-      videoRef.current.srcObject = null
-    }
-  }
-
-  const captureImage = (e : MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault()
+  const capturePhoto = () => {
     if (videoRef.current && canvasRef.current) {
-      const context = canvasRef.current.getContext("2d")
+      const video = videoRef.current;
+      const canvas = canvasRef.current;
 
+      // Set canvas dimensions to match video dimensions
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+
+      // Draw video frame onto canvas
+      const context = canvas.getContext("2d");
       if (context) {
-        canvasRef.current.width = videoRef.current.videoWidth
-        canvasRef.current.height = videoRef.current.videoHeight
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-        context.drawImage(videoRef.current, 0, 0, videoRef.current.videoWidth, videoRef.current.videoHeight)
+        // Convert canvas to image data URL
+        const imageDataUrl = canvas.toDataURL("image/jpeg");
+        setCapturedImage(imageDataUrl);
 
-        const imageDataUrl = canvasRef.current.toDataURL("image/png")
-        setCapturedImage(imageDataUrl)
-        setIsCameraActive(false)
+        // Stop camera after capturing
+        stopCamera();
       }
     }
-  }
+  };
 
-  const retakePhoto = (e : MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
-    e.preventDefault()
-    setCapturedImage(null)
-    setIsCameraActive(true)
-  }
-
-  const handleSubmit = () => {
-    if (!capturedImage || !agreed) return
-
-    // Here you would typically send the image to your server
-    console.log("Submitting image:", capturedImage)
-    alert("Image submitted successfully!")
-  }
+  const retakePhoto = () => {
+    setCapturedImage(null);
+    initializeCamera();
+  };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
-      <CardHeader className="text-center">
-        <CardTitle>Capture a Selfie</CardTitle>
-      </CardHeader>
-
-      <CardContent className="flex flex-col items-center space-y-4">
-        {isCameraActive ? (
-          <>
-            <div className="relative w-full aspect-[4/3] bg-black rounded-md overflow-hidden">
-              <video ref={videoRef} autoPlay playsInline muted className="w-full h-full object-cover" />
+    <div className="flex flex-col items-center max-w-md mx-auto p-4">
+      <Card className="w-full overflow-hidden">
+        <CardContent className="p-0">
+          {capturedImage ? (
+            // Display captured image
+            <div className="relative">
+              <img
+                src={capturedImage}
+                alt="Captured photo"
+                className="w-full h-auto"
+              />
             </div>
-            <Button onClick={captureImage} className="w-full">
-              Capture
-            </Button>
-          </>
-        ) : (
-          <>
-            <div className="w-full aspect-[4/3] bg-black rounded-md overflow-hidden">
-              {capturedImage && (
-                <img
-                  src={capturedImage || "/placeholder.svg"}
-                  alt="Captured selfie"
-                  className="w-full h-full object-cover"
-                />
-              )}
+          ) : (
+            // Display camera preview
+            <div className="relative bg-black">
+              <video
+                ref={videoRef}
+                autoPlay
+                playsInline
+                muted
+                className="w-full h-auto"
+                onCanPlay={() => setIsCameraReady(true)}
+              />
             </div>
-            <Button onClick={retakePhoto} className="w-full bg-yellow-400 hover:bg-yellow-500 text-black">
-              Retake
-            </Button>
-          </>
-        )}
+          )}
+        </CardContent>
+      </Card>
 
-        <div className="flex items-start space-x-2 w-full mt-4">
-          <Checkbox id="terms" checked={agreed} onCheckedChange={(checked) => setAgreed(checked as boolean)} />
-          <label
-            htmlFor="terms"
-            className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-          >
-            I agree to the{" "}
-            <Link href="#" className="text-blue-600 hover:underline">
-              terms & conditions
-            </Link>{" "}
-            and{" "}
-            <Link href="#" className="text-blue-600 hover:underline">
-              privacy policy
-            </Link>
-            .
-          </label>
-        </div>
-      </CardContent>
-
-      <CardFooter>
-        <Button
-          onClick={handleSubmit}
-          disabled={!capturedImage || !agreed}
-          className="w-full bg-green-600 hover:bg-green-700"
-        >
-          Submit
-        </Button>
-      </CardFooter>
-
-      {/* Hidden canvas for capturing the image */}
+      {/* Hidden canvas for capturing photos */}
       <canvas ref={canvasRef} className="hidden" />
-    </Card>
-  )
-}
+
+      <div className="mt-4 w-full">
+        {capturedImage ? (
+          // Show retake button after capture
+          <Button
+            onClick={retakePhoto}
+            className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700"
+          >
+            <RefreshCw className="h-5 w-5" />
+            Retake
+          </Button>
+        ) : (
+          // Show capture button during preview
+          <Button
+            onClick={capturePhoto}
+            disabled={!isCameraReady}
+            className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700"
+          >
+            <Camera className="h-5 w-5" />
+            Capture
+          </Button>
+        )}
+      </div>
+      <div className="mt-4 flex items-center space-x-2">
+        <Checkbox
+          id="terms"
+          checked={agreedToTerms}
+          onCheckedChange={(checked) => setAgreedToTerms(checked as boolean)}
+        />
+        <Label htmlFor="terms" className="text-sm text-gray-600">
+          I agree to the{" "}
+          <a href="#" className="text-blue-600 hover:underline">
+            terms & conditions
+          </a>{" "}
+          and{" "}
+          <a href="#" className="text-blue-600 hover:underline">
+            privacy policy
+          </a>
+          .
+        </Label>
+      </div>
+    </div>
+  );
+};
+
+export default CameraCapture;

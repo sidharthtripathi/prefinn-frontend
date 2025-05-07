@@ -23,6 +23,7 @@ import {
   CommandList,
 } from "./ui/command";
 import { cn } from "@/lib/utils";
+import CameraCapture from "./CameraCapture";
 
 const partnerBenefits = [
   "Strategic Financial Partner for Institutions and Business Owner",
@@ -91,6 +92,7 @@ export function PartnerForm() {
             <Label>Upload Aadhar Card</Label>
             <Input type="file" />
           </div>
+          <CameraCapture/>
         </form>
       </div>
       <div>

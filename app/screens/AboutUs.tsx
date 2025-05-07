@@ -93,18 +93,18 @@ function Aboutus() {
 function AboutBanner() {
   return (
     <div className="bg-[url('https://img.freepik.com/free-photo/handshake-businessmen_1098-742.jpg?uid=R193913366&ga=GA1.1.56492630.1742847583&semt=ais_hybrid&w=740')] bg-cover bg-center h-96 w-full flex justify-center items-center animate-fade-in">
-    <Card className="w-full sm:w-1/2 backdrop-blur-md bg-black/60 text-white font-bold border-none animate-slide-in-bottom">
-      <CardHeader>
-        <CardTitle className="text-center text-xl sm:text-3xl mb-2 font-bold animate-pulse">
-          Simplifying Finance. Empowering Individuals and Businesses.
-        </CardTitle>
-        <CardDescription className="text-center text-base sm:text-lg animate-fade-in delay-200">
-          We are dedicated to transforming financial access through seamless
-          digital solutions. Whether you are an individual or business, our
-          platform helps you get fast, transparent, and secure loan services.
-        </CardDescription>
-      </CardHeader>
-    </Card>
-  </div>
+      <Card className="w-full sm:w-1/2 backdrop-blur-md bg-black/60 text-white font-bold border-none animate-slide-in-bottom">
+        <CardHeader>
+          <CardTitle className="text-center text-xl sm:text-3xl mb-2 font-bold animate-pulse">
+            Simplifying Finance. Empowering Individuals and Businesses.
+          </CardTitle>
+          <CardDescription className="text-center text-base sm:text-lg animate-fade-in delay-200">
+            We are dedicated to transforming financial access through seamless
+            digital solutions. Whether you are an individual or business, our
+            platform helps you get fast, transparent, and secure loan services.
+          </CardDescription>
+        </CardHeader>
+      </Card>
+    </div>
   );
 }

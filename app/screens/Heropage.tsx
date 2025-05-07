@@ -1,3 +1,5 @@
+
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,7 +17,7 @@ import Marquee from "react-fast-marquee";
 import { FaHouseLaptop } from "react-icons/fa6";
 import { GiDecapitation } from "react-icons/gi";
 import { RiBankCardFill } from "react-icons/ri";
-import { TbBuildingBank, TbHomeBitcoin } from "react-icons/tb";
+import { TbBuildingBank, TbCheckbox, TbHeartHandshake, TbHome, TbHourglass, TbLock, TbTrendingUp } from "react-icons/tb";
 
 const banks: { img: string }[] = [
   {
@@ -86,43 +88,43 @@ const partners: { img: string; title: string; description: string }[] = [
 const stories: { icon: string; stats: string; title: string }[] = [
   { icon: "😃", stats: "150+", title: "Happy Customers" },
   { icon: "₹", stats: "₹23cr+", title: "Loan's Disbursed" },
-  { icon: "😃", stats: "130+", title: "Finance Partners" },
-  { icon: "😃", stats: "250+", title: "Independent Business Owners" },
-  { icon: "😃", stats: "5+", title: "Institutional Partners" },
+  { icon: "🏢", stats: "130+", title: "Finance Partners" },
+  { icon: "👔", stats: "250+", title: "Independent Business Owners" },
+  { icon: "🤝", stats: "5+", title: "Institutional Partners" },
 ];
 const features: { title: string; description: string; icon: ReactNode }[] = [
   {
-    icon: <TbHomeBitcoin size={40} className="text-main" />,
+    icon: <TbHeartHandshake size={40} className="text-main" />,
     title: "Product Diversification",
     description:
       "Offering multiple loan product options to Housing & SME customers at one platform.",
   },
   {
-    icon: <TbHomeBitcoin size={40} className="text-main" />,
+    icon: <TbCheckbox size={40} className="text-main" />,
     title: "Customer-Centric Approach",
     description:
       "Prompt Relationship Manager service with optimized loan options saving time and money.",
   },
   {
-    icon: <TbHomeBitcoin size={40} className="text-main" />,
+    icon: <TbLock size={40} className="text-main" />,
     title: "Secure & Fast Processing",
     description:
       "Robust data encryption ensures smooth and secure customer experience.s.",
   },
   {
-    icon: <TbHomeBitcoin size={40} className="text-main" />,
+    icon: <TbHourglass size={40} className="text-main" />,
     title: "Transparent Updates",
     description:
       "Track your loan application in real-time with total transparency.",
   },
   {
-    icon: <TbHomeBitcoin size={40} className="text-main" />,
+    icon: <TbBuildingBank size={40} className="text-main" />,
     title: "130+ Lender Network",
     description:
       "Access top-tier banks and NBFCs offering competitive interest rates.",
   },
   {
-    icon: <TbHomeBitcoin size={40} className="text-main" />,
+    icon: <TbTrendingUp size={40} className="text-main" />,
     title: "Enhanced Agent Dashboard",
     description:
       "Manage leads, payouts, and commissions — all with real-time insights.",
@@ -135,7 +137,7 @@ const products: {
   icon: ReactNode;
 }[] = [
   {
-    icon: <TbHomeBitcoin size={40} className="text-main" />,
+    icon: <TbHome size={40} className="text-main" />,
     title: "Home Loan",
     description:
       "Prefinn helps clients assess their home financing needs by partnering with experienced consultants.",
@@ -148,9 +150,9 @@ const products: {
   },
   {
     icon: <GiDecapitation size={40} className="text-main" />,
-    title: "Home Loan",
+    title: "Working Capital Loan",
     description:
-      "Prefinn helps clients assess their home financing needs by partnering with experienced consultants.",
+      "Expert financial solutions to maintain smooth business operations.",
   },
   {
     icon: <TbBuildingBank size={40} className="text-main" />,
@@ -202,43 +204,43 @@ export function HomePage() {
           />
         </div>
       </div>
-      <div className="px-20">
-        <h1 className=" mt-20 font-extrabold text-center text-4xl text-main mb-8 mt-8">
-          Our Loan Products
-        </h1>
-        <div className=" gap-4 flex flex-col md:flex-row">
-          {products.map((product, idx) => (
-            <Card key={idx}>
-              <CardHeader className="flex items-center">
-                {product.icon}
-              </CardHeader>
-              <CardContent>
-                <CardTitle className="text-center text-main mb-2">
-                  {product.title}
-                </CardTitle>
-                <CardDescription className="text-center text-dark">
-                  {product.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
-      <div className=" mt-20">
-        <h1 className="text-4xl font-bold text-center text-main mb-6">
-          Discover Our Feature
+      <div className="px-8 sm:px-16">
+  <h1 className="mt-8 sm:mt-20 font-extrabold text-center text-2xl sm:text-3xl text-main mb-6 sm:mb-8">
+    Our Loan Products
+  </h1>
+  <div className="gap-4 flex flex-col md:flex-row">
+    {products.map((product, idx) => (
+      <Card key={idx} className="w-full md:w-auto border-2">
+        <CardHeader className="flex items-center justify-center p-4">
+          <div className="text-xl sm:text-2xl">{product.icon}</div>
+        </CardHeader>
+        <CardContent className="p-4">
+          <CardTitle className="text-center text-main mb-1 text-lg sm:text-xl">
+            {product.title}
+          </CardTitle>
+          <CardDescription className="text-center text-sm sm:text-base text-dark">
+            {product.description}
+          </CardDescription>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+</div>
+      <div className=" mt-16">
+        <h1 className="text-3xl font-bold text-center text-main mb-6">
+          Discover Our Features
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4">
           {features.map((feature, idx) => (
-            <Card key={idx}>
+            <Card key={idx} className="my-0">
               <CardHeader className="flex items-center">
                 {feature.icon}
               </CardHeader>
               <CardContent>
-                <CardTitle className="text-center text-second mb-2">
+                <CardTitle className="text-center text-second mb-2 text-2xl">
                   {feature.title}
                 </CardTitle>
-                <CardDescription className="text-center">
+                <CardDescription className="text-center text-1xl">
                   {feature.description}
                 </CardDescription>
               </CardContent>
@@ -246,21 +248,21 @@ export function HomePage() {
           ))}
         </div>
       </div>
-      <div className="mt-20">
-        <h1 className="text-4xl font-bold mb-4 text-main text-center mt-8 mb-8 ">
+      <div className="mt-16">
+        <h1 className="text-3xl font-bold mb-4 text-main text-center mt-8 mb-8 ">
           Our Success Stories
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
           {stories.map((story, idx) => (
             <Card key={idx}>
-              <CardHeader className="flex items-center">
-                {story.icon}
-              </CardHeader>
+              <CardHeader className="flex items-center text-4xl bg-gradient-to-r from-blue-900 to-white text-white">
+  {story.icon}
+</CardHeader>
               <CardContent>
-                <CardTitle className="text-center text-second mb-2">
+                <CardTitle className="text-center text-second mb-2 text-2xl">
                   {story.stats}
                 </CardTitle>
-                <CardDescription className="text-center">
+                <CardDescription className="text-center text-1xl text-bold">
                   {story.title}
                 </CardDescription>
               </CardContent>
@@ -268,31 +270,31 @@ export function HomePage() {
           ))}
         </div>
       </div>
-      <div className="mt-20">
-        <h1 className="text-main font-bold text-4xl text-center mt-8 mb-8">
-          Our Value Chain Partner
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-          {partners.map((partner, idx) => (
-            <Card key={idx}>
-              <CardHeader className="flex items-center">
-                <img className="w-32" src={partner.img} alt="some image" />
-              </CardHeader>
-              <CardContent>
-                <CardTitle className="text-center text-second mb-2">
-                  {partner.title}
-                </CardTitle>
-                <CardDescription className="text-center">
-                  {partner.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </div>
+      <div className="mt-12 sm:mt-16">
+  <h1 className="text-main font-bold text-3xl sm:text-4xl text-center mt-6 sm:mt-8 mb-6 sm:mb-8">
+    Our Value Chain Partners
+  </h1>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-8">
+    {partners.map((partner, idx) => (
+      <Card key={idx} className="shadow-md rounded-lg overflow-hidden">
+        <CardHeader className="flex items-center justify-center p-4">
+          <img className="w-24 sm:w-32 max-h-20 object-contain" src={partner.img} alt={partner.title} />
+        </CardHeader>
+        <CardContent className="p-4 text-center">
+          <CardTitle className="text-blue-900 font-semibold text-lg mb-1">
+            {partner.title}
+          </CardTitle>
+          <CardDescription className="text-bold text-dark">
+            {partner.description}
+          </CardDescription>
+        </CardContent>
+      </Card>
+    ))}
+  </div>
+</div>
       <div className=" mt-20 px-2">
         <h1 className="text-center font-bold text-4xl text-main mt-8 mb-6">
-          Our service provider
+          Our Service Providers
         </h1>
         <div>
           <Marquee>
